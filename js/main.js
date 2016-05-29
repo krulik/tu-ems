@@ -1,7 +1,22 @@
 (function (EMS, Handlebars) {
 
-    renderView(EMS.getEmployees());
+    EMS.addEmployee({
+        name: "Serge Krul",
+        skill: "HTML, CSS, JS",
+        type: "Teacher"
+    });
+    EMS.addEmployee({
+        name: "Da Boss",
+        skill: "Being da boss",
+        type: "Manager"
+    });
+    EMS.addEmployee({
+        name: "Da Big Boss",
+        skill: "Firing People",
+        type: "CEO"
+    });
 
+    renderView(EMS.getEmployees());
     $("form").addEventListener("submit", onSubmit);
 
 

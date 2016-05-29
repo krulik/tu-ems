@@ -2,23 +2,17 @@
 
     var EMS = global.EMS || {};
 
-
-    EMS.employees = [
-        {
-            name: "Da Big Boss",
-            skill: "Firing People",
-            type: "CEO"
-        }
-    ];
-
-    EMS.getEmployees = function () {
-        return {
-            employees: EMS.employees
-        };
+    var data = {
+        employees: []
     };
 
-    EMS.addEmployee = function (data) {
-        EMS.employees.push(data);
+    EMS.getEmployees = function () {
+        return data;
+    };
+
+    EMS.addEmployee = function (employee) {
+        employee.id = data.employees.length + 1;
+        data.employees.push(employee);
     };
 
 

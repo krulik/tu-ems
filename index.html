@@ -29,8 +29,10 @@
 
     <script id="employee-template" type="text/x-handlebars-template">
         {{#each employees}}
-            <li class="Employee">
+            <li class="Employee" data-id="{{id}}">
                 <dl>
+                    <dt>ID</dt>
+                    <dd>{{id}}</dd>
                     <dt>Name</dt>
                     <dd>{{name}}</dd>
                     <dt>Skill</dt>
