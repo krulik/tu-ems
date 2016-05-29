@@ -20,7 +20,7 @@
 
     EMS.runAction = function (employeeId, action) {
         var employee = this.getEmployeeById(employeeId);
-        if (employee.actions.indexOf(action) === -1) {
+        if (indexOf(employee.actions, "id", action) === -1) {
             throw new Error("Action not supported for employee type");
         }
         return actions[action].call(employee);
@@ -39,15 +39,25 @@
         employee.actions = [];
         switch (employee.type) {
             case "CEO":
-                employee.actions.push("fireEveryone");
+                employee.actions.push({id: "fireEveryone", name: "Fire Everyone"});
             case "CEO":
             case "Manager":
-                employee.actions.push("sayYo");
+                employee.actions.push({id: "sayYo", name: "Say Yo"});
             default:
-                employee.actions.push("checkIn");
+                employee.actions.push({id: "checkIn", name: "Check In"});
         }
         data.employees.push(employee);
     };
+
+    function indexOf (arr, key, value) {
+        var ret = -1;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i][key] === value) {
+                ret = i;
+            }
+        }
+        return ret;
+    }
 
 
     global.EMS = EMS;

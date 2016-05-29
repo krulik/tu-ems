@@ -34,6 +34,7 @@
         var employeeId = getEmployeeId(e.target);
         var action = e.target.dataset.action;
         EMS.runAction(employeeId, action);
+        renderView(EMS.getEmployees());
     }
 
     function getEmployeeId (node) {
