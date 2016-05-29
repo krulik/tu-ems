@@ -18,6 +18,7 @@
 
     renderView(EMS.getEmployees());
     $("form").addEventListener("submit", onSubmit);
+    $(".Employees").addEventListener("click", onClick);
 
 
     // Methods
@@ -27,6 +28,19 @@
         e.preventDefault();
         EMS.addEmployee(getSerialized(this));
         renderView(EMS.getEmployees());
+    }
+
+    function onClick (e) {
+        var employeeId = getEmployeeId(e.target);
+        var action = e.target.dataset.action;
+        EMS.runAction(employeeId, action);
+    }
+
+    function getEmployeeId (node) {
+        while (node && !node.hasAttribute("data-id")) {
+            node = node.parentNode;
+        }
+        return node.dataset.id;
     }
 
     function getSerialized (form) {

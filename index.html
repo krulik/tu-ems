@@ -39,7 +39,14 @@
                     <dd>{{skill}}</dd>
                     <dt>Title</dt>
                     <dd>{{type}}</dd>
+                    <dt>Last Check In</dt>
+                    <dd>{{#if lastCheckIn}}{{lastCheckIn}}{{else}}---{{/if}}</dd>
                 </dl>
+                <ul>
+                    {{#each actions}}
+                        <li><button data-action="{{this}}" class="Button">{{this}}</button></li>
+                    {{/each}}
+                </ul>
             </li>
         {{/each}}
     </script>
